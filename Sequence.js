@@ -1,1 +1,7 @@
-console.log('sequence showing');
+class Sequence {
+	constructor(colorChoice) {
+		this.colorChoice = colorChoice;
+	}
+
+	setSequence() {}
+}
