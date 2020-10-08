@@ -1,0 +1,48 @@
+body {
+	text-align: center;
+}
+
+h1 {
+	margin-bottom: 100px;
+}
+
+.flex-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.board {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	width: 60vh;
+	height: 60vh;
+}
+
+.square {
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15vh;
+}
+
+#red {
+	background-color: red;
+}
+
+#yellow {
+	background-color: yellow;
+}
+
+#green {
+	background-color: green;
+}
+
+#blue {
+	background-color: blue;
+}
