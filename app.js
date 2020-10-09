@@ -6,7 +6,7 @@ const btn = document.querySelector('button');
  */
 
 btn.addEventListener('click', () => {
-	game.startGame();
+	game.handleInteraction();
 });
 
 /**

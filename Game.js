@@ -30,5 +30,7 @@ class Game {
 	 * stretch - will have an overlay with start button to enter the 'game page'
 	 * calls the sequence class to get a new sequence - oop??
 	 */
-	startGame() {}
+	startGame() {
+		console.log('starting game!');
+	}
 }
