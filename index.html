@@ -8,17 +8,21 @@
 			href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
 			rel="stylesheet"
 		/>
-		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
+		<title>Simon</title>
 	</head>
 	<body>
 		<h1>Simon</h1>
 		<button id="start">Start</button>
 		<div class="flex-container">
 			<div class="board">
-				<div class="square" id="red"></div>
-				<div class="square" id="yellow"></div>
-				<div class="square" id="green"></div>
-				<div class="square" id="blue"></div>
+				<div class="square animate__flash" id="red"></div>
+				<div class="square animate__flash" id="yellow"></div>
+				<div class="square animate__fadeIn" id="green"></div>
+				<div class="square animate__fadeIn" id="blue"></div>
 			</div>
 		</div>
 		<script src="Sequence.js"></script>

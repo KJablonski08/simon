@@ -12,7 +12,31 @@ class Game {
 	getSequence() {
 		const seq = new Sequence();
 		seq.setSequence(20);
-		console.log(seq.sequence);
+		return seq.sequence;
+	}
+
+	runSequence(sequence) {
+		let offset = 3000;
+		sequence.forEach((color) => {
+			setTimeout(() => {
+				console.log(color);
+			}, offset);
+			offset += 3000;
+		});
+	}
+
+	//SOURCE - https://stackoverflow.com/questions/17246275/settimeout-and-array-each
+
+	/**
+	 * @function startGame
+	 * @params
+	 * starts the game ...
+	 * stretch - will have an overlay with start button to enter the 'game page'
+	 * calls the sequence class to get a new sequence - oop??
+	 */
+	startGame() {
+		const sequence = this.getSequence();
+		this.runSequence(sequence);
 	}
 
 	/**
@@ -24,17 +48,5 @@ class Game {
 
 	handleInteraction() {
 		this.startGame();
-	}
-
-	/**
-	 * @function startGame
-	 * @params
-	 * starts the game ...
-	 * stretch - will have an overlay with start button to enter the 'game page'
-	 * calls the sequence class to get a new sequence - oop??
-	 */
-	startGame() {
-		console.log('starting game!');
-		this.getSequence();
 	}
 }
