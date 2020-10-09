@@ -1,7 +1,20 @@
 class Sequence {
-	constructor(colorChoice) {
-		this.colorChoice = colorChoice;
+	constructor() {
+		this.sequenceChoices = ['red', 'yellow', 'green', 'blue'];
 	}
 
-	setSequence() {}
+	getRandomNum() {
+		return this.sequenceChoices[
+			Math.floor(Math.random() * this.sequenceChoices.length)
+		];
+	}
+
+	/**
+	 * @function setSequence
+	 * @param {}
+	 */
+	setSequence() {
+		const num = this.getRandomNum();
+		console.log(num);
+	}
 }

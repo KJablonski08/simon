@@ -1,7 +1,6 @@
 class Game {
 	constructor() {
 		this.sequence = [];
-		this.sequenceChoices = ['red', 'yellow', 'green', 'blue'];
 	}
 
 	/**
@@ -10,7 +9,10 @@ class Game {
 	 * get random number b/w 0-4
 	 * use this number to choose from index of sequenceChoices
 	 * */
-	getSequence() {}
+	getSequence() {
+		const seq = new Sequence();
+		seq.setSequence();
+	}
 
 	/**
 	 * @function handleInteration
@@ -32,5 +34,6 @@ class Game {
 	 */
 	startGame() {
 		console.log('starting game!');
+		this.getSequence();
 	}
 }
