@@ -1,6 +1,6 @@
 class Game {
 	constructor() {
-		this.sequence = [];
+		this.playerSequence = [];
 	}
 
 	/**
@@ -11,7 +11,8 @@ class Game {
 	 * */
 	getSequence() {
 		const seq = new Sequence();
-		seq.setSequence();
+		seq.setSequence(20);
+		console.log(seq.sequence);
 	}
 
 	/**
