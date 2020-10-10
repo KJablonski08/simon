@@ -3,20 +3,31 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="/styles/style.css" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+			href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
 			rel="stylesheet"
 		/>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 		/>
+		<link rel="icon" href="styles/images/favicon.png" />
 		<title>Simon</title>
 	</head>
 	<body>
+		<div id="overlay" class="start">
+			<h1 class="title">Simon</h1>
+			<h2 id="game-over-message"></h2>
+			<ul>
+				<li><a>Enter</a></li>
+			</ul>
+			<button id="enter">Enter</button>
+			<br />
+			<button id="enter">How to play</button>
+		</div>
 		<h1>Simon</h1>
-		<button id="start">Start</button>
+		<button id="start">Start Game</button>
 		<h2></h2>
 		<div class="flex-container">
 			<div class="board">
@@ -26,6 +37,18 @@
 				<div class="square" id="blue"></div>
 			</div>
 		</div>
+		<footer>
+			<div>
+				Icons made by
+				<a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+					>Freepik</a
+				>
+				from
+				<a href="https://www.flaticon.com/" title="Flaticon"
+					>www.flaticon.com</a
+				>
+			</div>
+		</footer>
 		<script src="Sequence.js"></script>
 		<script src="Game.js"></script>
 		<script src="app.js"></script>

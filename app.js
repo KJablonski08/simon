@@ -1,19 +1,30 @@
 //creates new game object from class Game.js
 const game = new Game();
-const btn = document.querySelector('button');
+const start = document.querySelector('#start');
 const board = document.querySelector('.board');
+const overlay = document.querySelector('#overlay');
+const enter = document.querySelector('#enter');
 /**
  * Click event on button that starts the game
  */
 
-btn.addEventListener('click', () => {
-	btn.style.display = 'none';
+enter.addEventListener('click', () => {
+	overlay.style.display = 'none';
+});
+
+start.addEventListener('click', () => {
+	start.style.display = 'none';
 	game.playGame();
 });
 
 /** Click event on board for player choice */
 board.addEventListener('click', (e) => {
-	game.handleInteraction(e.target.id);
+	const square = e.target;
+	square.setAttribute('class', 'active');
+	setTimeout(() => {
+		square.classList.remove('active');
+	}, 100);
+	setTimeout(game.handleInteraction(e.target.id), 5000);
 });
 
 /**

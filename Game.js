@@ -56,7 +56,8 @@ class Game {
 		if (this.playerSequence.join() === this.sequence.sequence.join()) {
 			this.playGame();
 		} else {
-			console.log('Game Over');
+			const gameOver = document.querySelector('#overlay');
+			gameOver.style.display = '';
 		}
 	}
 

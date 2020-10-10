@@ -1,6 +1,36 @@
 body {
 	text-align: center;
-	font-family: 'Permanent Marker', cursive;
+	font-family: 'VT323', monospace;
+}
+
+#overlay {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	color: #ffffff;
+	justify-content: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: black;
+}
+
+button {
+	font-family: 'VT323', monospace;
+}
+
+#enter {
+	background-color: whitesmoke;
+	border: none;
+	border-radius: 50px;
+	width: 200px;
+	padding: 10px;
+	align-self: center;
+}
+
+#enter:hover {
+	background-color: red;
 }
 
 #start {
@@ -61,4 +91,8 @@ body {
 #yellow.active,
 #blue.active {
 	opacity: 0.1;
+}
+
+footer {
+	margin-top: 250px;
 }
