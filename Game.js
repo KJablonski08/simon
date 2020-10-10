@@ -17,15 +17,15 @@ class Game {
 	}
 
 	runSequence(sequence) {
-		const offset = 1000;
 		sequence.forEach((color, i) => {
 			const square = document.querySelector(`#${color}`);
+			console.log(color);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
 				setTimeout(() => {
 					square.classList.remove('active');
 				}, 1000);
-			}, i++ * 500);
+			}, i++ * 2000);
 		});
 	}
 
