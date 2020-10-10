@@ -1,6 +1,8 @@
 class Game {
 	constructor() {
 		this.playerSequence = [];
+		this.length = 1;
+		this.sequence = new Sequence();
 	}
 
 	/**
@@ -10,16 +12,19 @@ class Game {
 	 * use this number to choose from index of sequenceChoices
 	 * */
 	getSequence() {
-		const seq = new Sequence();
-		seq.setSequence(20);
+		seq.setSequence();
 		return seq.sequence;
 	}
 
 	runSequence(sequence) {
 		let offset = 3000;
 		sequence.forEach((color) => {
+			const square = document.querySelector(`#${color}`);
+			const h1 = document.querySelector('h1');
+
 			setTimeout(() => {
 				console.log(color);
+				square.setAttribute('class', 'active');
 			}, offset);
 			offset += 3000;
 		});

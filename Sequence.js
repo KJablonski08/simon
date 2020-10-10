@@ -15,10 +15,8 @@ class Sequence {
 	 * @param {integer}
 	 * decides how many rounds the player would like to play before winning and sets a random sequence that the 'computer' will play
 	 */
-	setSequence(gameLength) {
-		for (let i = 0; i < gameLength; i++) {
-			this.sequence.push(this.getRandomNum());
-		}
+	setSequence() {
+		this.sequence.push(this.getRandomNum());
 		return this.sequence;
 	}
 }
