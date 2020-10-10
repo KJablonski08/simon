@@ -43,7 +43,7 @@ class Game {
 	 * stretch - will have an overlay with start button to enter the 'game page'
 	 * calls the sequence class to get a new sequence - oop??
 	 */
-	startGame() {
+	playGame() {
 		const sequence = this.getSequence();
 		for (let i = 0; i <= this.round; i++) {
 			this.runSequence(sequence);
@@ -61,7 +61,7 @@ class Game {
 	handleInteraction(e) {
 		this.playerSequence.push(e);
 		if (this.playerSequence.join() === this.sequence.sequence.join()) {
-			console.log('next round please');
+			this.playGame();
 		} else {
 			console.log('something is up here');
 		}

@@ -8,7 +8,7 @@ const board = document.querySelector('.board');
 
 btn.addEventListener('click', () => {
 	btn.style.display = 'none';
-	game.startGame();
+	game.playGame();
 });
 
 /** Click event on board for player choice */
