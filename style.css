@@ -56,7 +56,7 @@ body {
 	background-color: blue;
 }
 
-#red:active,
+#red.active,
 #green.active,
 #yellow.active,
 #blue.active {

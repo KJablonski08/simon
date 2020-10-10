@@ -1,7 +1,7 @@
 class Game {
 	constructor() {
 		this.playerSequence = [];
-		this.length = 1;
+		this.round = 0;
 		this.sequence = new Sequence();
 	}
 
@@ -12,25 +12,25 @@ class Game {
 	 * use this number to choose from index of sequenceChoices
 	 * */
 	getSequence() {
-		seq.setSequence();
-		return seq.sequence;
+		this.sequence.setSequence();
+		return this.sequence.sequence;
 	}
 
 	runSequence(sequence) {
-		let offset = 3000;
 		sequence.forEach((color) => {
 			const square = document.querySelector(`#${color}`);
-			const h1 = document.querySelector('h1');
-
+			square.setAttribute('class', 'active');
 			setTimeout(() => {
-				console.log(color);
-				square.setAttribute('class', 'active');
-			}, offset);
-			offset += 3000;
+				square.classList.remove('active');
+			}, 1000);
 		});
 	}
 
 	//SOURCE - https://stackoverflow.com/questions/17246275/settimeout-and-array-each
+
+	nextRound() {
+		this.round++;
+	}
 
 	/**
 	 * @function startGame
