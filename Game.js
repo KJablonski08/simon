@@ -1,7 +1,7 @@
 class Game {
 	constructor() {
 		this.playerSequence = [];
-		this.round = 1;
+		this.round = 0;
 		this.sequence = new Sequence();
 	}
 
@@ -19,7 +19,6 @@ class Game {
 	runSequence(sequence) {
 		sequence.forEach((color, i) => {
 			const square = document.querySelector(`#${color}`);
-			console.log(color);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
 				setTimeout(() => {
@@ -33,6 +32,8 @@ class Game {
 
 	nextRound() {
 		this.round++;
+		const h2 = document.querySelector('h2');
+		h2.innerText = `Round: ${this.round}`;
 	}
 
 	/**
@@ -44,10 +45,10 @@ class Game {
 	 */
 	startGame() {
 		const sequence = this.getSequence();
-		for (let i = 0; i < this.round; i++) {
+		for (let i = 0; i <= this.round; i++) {
 			this.runSequence(sequence);
 		}
-		this.round++;
+		this.nextRound();
 	}
 
 	/**
@@ -57,7 +58,14 @@ class Game {
 	 * stretch - will handle the events that need to happen for qwerty events
 	 */
 
-	handleInteraction() {
-		this.startGame();
+	handleInteraction(e) {
+		this.playerSequence.push(e);
+		if (this.playerSequence.join() === this.sequence.sequence.join()) {
+			console.log('next round please');
+		} else {
+			console.log('something is up here');
+		}
+		console.log(this.playerSequence);
+		console.log(this.sequence.sequence);
 	}
 }
