@@ -1,7 +1,7 @@
 class Game {
 	constructor() {
 		this.playerSequence = [];
-		this.round = 0;
+		this.round = 1;
 		this.sequence = new Sequence();
 	}
 
@@ -44,7 +44,10 @@ class Game {
 	 */
 	startGame() {
 		const sequence = this.getSequence();
-		this.runSequence(sequence);
+		for (let i = 0; i < this.round; i++) {
+			this.runSequence(sequence);
+		}
+		this.round++;
 	}
 
 	/**
