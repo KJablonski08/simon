@@ -31,6 +31,7 @@ class Game {
 	//SOURCE - https://stackoverflow.com/questions/17246275/settimeout-and-array-each
 
 	nextRound() {
+		this.playerSequence = [];
 		this.round++;
 		const h2 = document.querySelector('h2');
 		h2.innerText = `Round: ${this.round}`;
@@ -51,6 +52,14 @@ class Game {
 		this.nextRound();
 	}
 
+	checkPlayerSequence() {
+		if (this.playerSequence.join() === this.sequence.sequence.join()) {
+			this.playGame();
+		} else {
+			console.log('Game Over');
+		}
+	}
+
 	/**
 	 * @function handleInteration
 	 * @params
@@ -60,12 +69,8 @@ class Game {
 
 	handleInteraction(e) {
 		this.playerSequence.push(e);
-		if (this.playerSequence.join() === this.sequence.sequence.join()) {
-			this.playGame();
-		} else {
-			console.log('something is up here');
+		if (this.playerSequence.length === this.sequence.sequence.length) {
+			this.checkPlayerSequence();
 		}
-		console.log(this.playerSequence);
-		console.log(this.sequence.sequence);
 	}
 }
