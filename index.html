@@ -18,23 +18,41 @@
 	<body>
 		<div id="overlay" class="start">
 			<h1 id="title">Simon</h1>
-			<h2 id="game-over-message"></h2>
-			<button id="enter">Enter</button>
+			<button id="enter">Play</button>
 			<br />
-			<button id="enter">How to play</button>
+			<button id="instructions">Instructions</button>
 		</div>
 		<h1>Simon</h1>
 		<button id="start">Start Game</button>
+		<button id="instructions">Instructions</button>
 		<div class="flex-container">
 			<div class="score">
 				<h2>SCORE</h2>
 				<p>01</p>
 			</div>
 			<div class="board">
-				<div class="square" id="red"></div>
-				<div class="square" id="yellow"></div>
-				<div class="square" id="green"></div>
-				<div class="square" id="blue"></div>
+				<div class="square" id="red">
+					<audio controls>
+						<source src="/styles/audio/132392__blackie666__17talien-perc.wav" />
+					</audio>
+				</div>
+				<div class="square" id="yellow">
+					<audio controls>
+						<source src="/styles/audio/417731__wcoltd__laser1 (1).wav" />
+					</audio>
+				</div>
+				<div class="square" id="green">
+					<audio controls>
+						<source src="/styles/audio/440782__wcoltd__laser5.wav" />
+					</audio>
+				</div>
+				<div class="square" id="blue">
+					<audio controls>
+						<source
+							src="/styles/audio/483508__dominikbraun__laser-shot-3.mp3"
+						/>
+					</audio>
+				</div>
 			</div>
 		</div>
 		<footer>

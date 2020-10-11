@@ -16,13 +16,20 @@ class Game {
 		return this.sequence.sequence;
 	}
 
+	playAudio(color) {
+		const e = document.querySelector(`#${color} audio`);
+		e.play();
+	}
+
 	runSequence(sequence) {
 		sequence.forEach((color, i) => {
 			const square = document.querySelector(`#${color}`);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
+				this.playAudio(color);
 				setTimeout(() => {
 					square.classList.remove('active');
+					// square.stop();
 				}, 1000);
 			}, i++ * 2000);
 		});
@@ -61,7 +68,10 @@ class Game {
 			this.playGame();
 		} else {
 			const gameOver = document.querySelector('#overlay');
+			const title = document.querySelector('#title');
 			gameOver.style.display = '';
+			title.style.color = 'red';
+			title.innerText = 'Game Over';
 		}
 	}
 

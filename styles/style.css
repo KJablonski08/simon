@@ -24,9 +24,10 @@ body {
 
 button {
 	font-family: 'VT323', monospace;
+	font-size: x-large;
 	background-color: whitesmoke;
 	border: none;
-	border-radius: 50px;
+	border-radius: 25px;
 	width: 200px;
 	padding: 10px;
 	align-self: center;
@@ -39,11 +40,10 @@ button:hover {
 #start {
 	background-color: black;
 	color: white;
-	border-radius: 2px;
-	text-decoration: none;
-	border: none;
-	padding: 10px;
-	font-size: larger;
+}
+
+#instructions {
+	background: grey;
 }
 
 .flex-container {
@@ -66,6 +66,7 @@ button:hover {
 	height: 25vh;
 	width: 25vh;
 	background-color: black;
+	z-index: 10;
 	border-radius: 50%;
 	display: inline-block;
 	position: absolute;
@@ -87,6 +88,10 @@ p {
 	align-items: center;
 	font-size: 15vh;
 	border-radius: 2px;
+}
+
+audio {
+	display: none;
 }
 
 #red {
