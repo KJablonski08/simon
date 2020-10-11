@@ -20,6 +20,8 @@ start.addEventListener('click', () => {
 /** Click event on board for player choice */
 board.addEventListener('click', (e) => {
 	const square = e.target;
+	const audio = e.target.firstElementChild;
+	audio.play();
 	square.setAttribute('class', 'active');
 	setTimeout(() => {
 		square.classList.remove('active');

@@ -18,6 +18,7 @@ class Game {
 
 	playAudio(color) {
 		const e = document.querySelector(`#${color} audio`);
+		console.log(e);
 		e.play();
 	}
 
