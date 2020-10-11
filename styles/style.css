@@ -1,14 +1,13 @@
 body {
 	text-align: center;
 	font-family: 'VT323', monospace;
-	background-color: white;
 }
 
 #overlay {
 	display: flex;
 	flex-direction: column;
 	position: fixed;
-	z-index: 100;
+	z-index: 10;
 	color: #ffffff;
 	justify-content: center;
 	top: 0;
@@ -24,13 +23,14 @@ body {
 
 button {
 	font-family: 'VT323', monospace;
-	font-size: x-large;
+	font-size: large;
 	background-color: whitesmoke;
 	border: none;
-	border-radius: 25px;
+	border-radius: 10px;
 	width: 200px;
 	padding: 10px;
 	align-self: center;
+	margin: 5px;
 }
 
 button:hover {
@@ -44,10 +44,12 @@ button:hover {
 
 #restart {
 	display: none;
+	background-color: black;
+	color: white;
 }
 
 #instructions {
-	background: grey;
+	background: lightgray;
 }
 
 .flex-container {
@@ -64,13 +66,16 @@ button:hover {
 	grid-row-gap: 10px;
 	width: 60vh;
 	height: 60vh;
+	background-color: black;
+	border: 8px solid black;
+	border-radius: 50px;
 }
 
 .score {
 	height: 25vh;
 	width: 25vh;
 	background-color: black;
-	z-index: 10;
+	z-index: 5;
 	border-radius: 50%;
 	display: inline-block;
 	position: absolute;
@@ -91,7 +96,6 @@ p {
 	justify-content: center;
 	align-items: center;
 	font-size: 15vh;
-	border-radius: 2px;
 }
 
 audio {
@@ -100,18 +104,22 @@ audio {
 
 #red {
 	background-color: red;
+	border-radius: 50px 2px 2px 2px;
 }
 
 #yellow {
 	background-color: yellow;
+	border-radius: 2px 50px 2px 2px;
 }
 
 #green {
 	background-color: green;
+	border-radius: 2px 2px 2px 50px;
 }
 
 #blue {
 	background-color: blue;
+	border-radius: 50px 2px 50px 2px;
 }
 
 #red.active,

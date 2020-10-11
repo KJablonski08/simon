@@ -26,14 +26,24 @@ board.addEventListener('click', (e) => {
 	setTimeout(game.handleInteraction(e.target.id), 5000);
 });
 
-/**
- * Click event for qwerty events
- */
+// click events for qwerty events - accessibility
 
 document.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
 		start.style.display = 'none';
 		restart.style.display = 'inline-block';
 		game.playGame();
+	}
+});
+
+document.addEventListener('keypress', (e) => {
+	if (e.key === 'i') {
+		console.log('display instructions please');
+	}
+});
+
+document.addEventListener('keypress', (e) => {
+	if (e.key === 'p') {
+		overlay.style.display = 'none';
 	}
 });
