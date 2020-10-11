@@ -5,6 +5,14 @@ class Game {
 		this.sequence = new Sequence();
 	}
 
+	// document.addEventListener('keypress', (e) => {
+	//   if (e.key === 'Enter') {
+	//     start.style.display = 'none';
+	//     restart.style.display = 'inline-block';
+	//     game.playGame();
+	//   }
+	// });
+
 	/**
 	 * @function getSequence
 	 * @params

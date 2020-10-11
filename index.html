@@ -19,18 +19,49 @@
 		<div id="overlay" class="start">
 			<h1 id="title">Simon</h1>
 			<button id="enter">Play</button>
-			<button id="instructions">Instructions</button>
+			<button class="instructions">Instructions</button>
 			<h3>to get started press 'p'</h3>
 			<h3>for instructions press 'i'</h3>
 		</div>
+
+		<div id="modal">
+			<div id="modal-textbox">
+				<h1>Learn to Play Simon</h1>
+				<p>
+					Object of the Game: Correctly repeat a longer and longer sequence of
+					signals.
+				</p>
+				<p>
+					Press the START button (or press 'Enter' key on your keyboard). Simon
+					will give the first signal. Repeat the signal by pressing the same
+					color
+				</p>
+				<p>
+					Simon will duplicate the first signal and add one. repeat these two
+					signals by pressing the same colors, in order
+				</p>
+				<p>
+					Continue playing as long as you can repeat each sequence of signals
+					correctly.
+				</p>
+				<p>
+					If you fail to repeat a sequence exactly, you've lost, and the
+					sequence of signals ends
+				</p>
+				<div id="modal-footer">
+					<button class="modal-buttons" id="close" href="#">Close</button>
+				</div>
+			</div>
+		</div>
+
 		<h1>Simon</h1>
 		<button id="start">Start Game</button>
 		<button id="restart">Restart</button>
-		<button id="instructions">Instructions</button>
+		<button class="instructions">Instructions</button>
 		<div class="flex-container">
 			<div class="score">
 				<h2>SCORE</h2>
-				<p>01</p>
+				<p id="scoreNum">01</p>
 			</div>
 			<div class="board">
 				<div class="square" id="red">
@@ -70,6 +101,7 @@
 			</div>
 		</footer>
 		<script src="Sequence.js"></script>
+		<script src="Player.js"></script>
 		<script src="Game.js"></script>
 		<script src="app.js"></script>
 	</body>

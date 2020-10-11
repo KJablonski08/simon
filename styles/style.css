@@ -21,6 +21,33 @@ body {
 	font-size: 100px;
 }
 
+#modal {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 10;
+	overflow: auto;
+	display: none;
+}
+
+#modal-textbox {
+	background-color: white;
+	height: 350px;
+	width: 550px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 2%;
+	text-align: left;
+}
+
+#modal-footer {
+	text-align: right;
+}
+
 button {
 	font-family: 'VT323', monospace;
 	font-size: large;
@@ -48,8 +75,8 @@ button:hover {
 	color: white;
 }
 
-#instructions {
-	background: lightgray;
+.instructions {
+	background: grey;
 }
 
 .flex-container {
@@ -84,7 +111,7 @@ button:hover {
 }
 
 h2,
-p {
+#scoreNum {
 	color: red;
 	font-size: 5vh;
 }

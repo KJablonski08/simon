@@ -26,19 +26,25 @@ board.addEventListener('click', (e) => {
 	setTimeout(game.handleInteraction(e.target.id), 5000);
 });
 
+const instructionsBtn = document.querySelectorAll('.instructions');
+const modal = document.querySelector('#modal');
+const close = document.querySelector('#close');
+
+const openModal = () => {
+	modal.style.display = 'block';
+};
+const closeModal = () => (modal.style.display = 'none');
+
+instructionsBtn[0].addEventListener('click', openModal);
+instructionsBtn[1].addEventListener('click', openModal);
+
+close.addEventListener('click', closeModal);
+
 // click events for qwerty events - accessibility
 
 document.addEventListener('keypress', (e) => {
-	if (e.key === 'Enter') {
-		start.style.display = 'none';
-		restart.style.display = 'inline-block';
-		game.playGame();
-	}
-});
-
-document.addEventListener('keypress', (e) => {
 	if (e.key === 'i') {
-		console.log('display instructions please');
+		openModal();
 	}
 });
 
