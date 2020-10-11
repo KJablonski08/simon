@@ -42,6 +42,10 @@ button:hover {
 	color: white;
 }
 
+#restart {
+	display: none;
+}
+
 #instructions {
 	background: grey;
 }

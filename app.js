@@ -1,12 +1,9 @@
-//creates new game object from class Game.js
-const game = new Game();
-const start = document.querySelector('#start');
-const board = document.querySelector('.board');
 const overlay = document.querySelector('#overlay');
 const enter = document.querySelector('#enter');
-/**
- * Click event on button that starts the game
- */
+const board = document.querySelector('.board');
+const start = document.querySelector('#start');
+const restart = document.querySelector('#restart');
+const game = new Game();
 
 enter.addEventListener('click', () => {
 	overlay.style.display = 'none';
@@ -14,10 +11,10 @@ enter.addEventListener('click', () => {
 
 start.addEventListener('click', () => {
 	start.style.display = 'none';
+	restart.style.display = 'inline-block';
 	game.playGame();
 });
 
-/** Click event on board for player choice */
 board.addEventListener('click', (e) => {
 	const square = e.target;
 	const audio = e.target.firstElementChild;
@@ -32,3 +29,11 @@ board.addEventListener('click', (e) => {
 /**
  * Click event for qwerty events
  */
+
+document.addEventListener('keypress', (e) => {
+	if (e.key === 'Enter') {
+		start.style.display = 'none';
+		restart.style.display = 'inline-block';
+		game.playGame();
+	}
+});
