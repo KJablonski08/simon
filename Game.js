@@ -33,8 +33,12 @@ class Game {
 	nextRound() {
 		this.playerSequence = [];
 		this.round++;
-		const h2 = document.querySelector('h2');
-		h2.innerText = `Round: ${this.round}`;
+		const p = document.querySelector('p');
+		if (this.round < 10) {
+			p.innerText = `0${this.round}`;
+		} else {
+			p.innerText = `${this.round}`;
+		}
 	}
 
 	/**
