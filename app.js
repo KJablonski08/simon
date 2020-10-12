@@ -28,6 +28,8 @@ board.addEventListener('click', (e) => {
 	}
 });
 
+restart.addEventListener('click', () => game.restart());
+
 const instructionsBtn = document.querySelectorAll('.instructions');
 const modal = document.querySelector('#modal');
 const close = document.querySelector('#close');

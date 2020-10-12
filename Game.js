@@ -30,7 +30,6 @@ class Game {
 		});
 		setTimeout(() => {
 			this.sequenceRunning = false;
-			console.log(this.sequenceRunning);
 		}, offset);
 	}
 
@@ -49,7 +48,6 @@ class Game {
 
 	playGame() {
 		this.sequenceRunning = true;
-		console.log(this.sequenceRunning);
 		const sequence = this.getSequence();
 		for (let i = 0; i <= this.round; i++) {
 			this.runSequence(sequence);
@@ -69,6 +67,10 @@ class Game {
 			title.style.color = 'red';
 			title.innerText = 'Game Over';
 		}
+	}
+
+	restart() {
+		console.log('new game please');
 	}
 
 	handleInteraction(e) {
