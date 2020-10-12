@@ -70,7 +70,15 @@ class Game {
 	}
 
 	restart() {
-		console.log('new game please');
+		const score = document.querySelector('#scoreNum');
+		const restart = document.querySelector('#restart');
+		const start = document.querySelector('#start');
+		this.playerSequence = [];
+		this.round = 0;
+		this.sequence.sequence = [];
+		score.innerText = score.innerText = `0${this.round}`;
+		restart.style.display = 'none';
+		start.style.display = '';
 	}
 
 	handleInteraction(e) {

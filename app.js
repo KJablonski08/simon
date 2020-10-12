@@ -28,7 +28,10 @@ board.addEventListener('click', (e) => {
 	}
 });
 
-restart.addEventListener('click', () => game.restart());
+restart.addEventListener('click', () => {
+	console.log('new game please');
+	game.restart();
+});
 
 const instructionsBtn = document.querySelectorAll('.instructions');
 const modal = document.querySelector('#modal');
