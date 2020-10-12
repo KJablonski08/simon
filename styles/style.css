@@ -75,7 +75,8 @@ button:hover {
 	color: white;
 }
 
-.instructions {
+.instructions,
+#close {
 	background: grey;
 }
 

@@ -18,12 +18,14 @@ start.addEventListener('click', () => {
 board.addEventListener('click', (e) => {
 	const square = e.target;
 	const audio = e.target.firstElementChild;
-	audio.play();
-	square.setAttribute('class', 'active');
-	setTimeout(() => {
-		square.classList.remove('active');
-	}, 100);
-	setTimeout(game.handleInteraction(e.target.id), 5000);
+	if (game.sequenceRunning === false) {
+		audio.play();
+		square.setAttribute('class', 'active');
+		setTimeout(() => {
+			square.classList.remove('active');
+		}, 100);
+		setTimeout(game.handleInteraction(e.target.id), 5000);
+	}
 });
 
 const instructionsBtn = document.querySelectorAll('.instructions');
@@ -49,7 +51,21 @@ document.addEventListener('keypress', (e) => {
 });
 
 document.addEventListener('keypress', (e) => {
+	if (e.key === 'Enter') {
+		start.style.display = 'none';
+		restart.style.display = 'inline-block';
+		game.playGame();
+	}
+});
+
+document.addEventListener('keypress', (e) => {
 	if (e.key === 'p') {
 		overlay.style.display = 'none';
+	}
+});
+
+document.addEventListener('keypress', (e) => {
+	if (e.key === 'x') {
+		closeModal();
 	}
 });

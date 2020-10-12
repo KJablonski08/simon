@@ -3,22 +3,8 @@ class Game {
 		this.playerSequence = [];
 		this.round = 0;
 		this.sequence = new Sequence();
+		this.sequenceRunning = false;
 	}
-
-	// document.addEventListener('keypress', (e) => {
-	//   if (e.key === 'Enter') {
-	//     start.style.display = 'none';
-	//     restart.style.display = 'inline-block';
-	//     game.playGame();
-	//   }
-	// });
-
-	/**
-	 * @function getSequence
-	 * @params
-	 * get random number b/w 0-4
-	 * use this number to choose from index of sequenceChoices
-	 * */
 	getSequence() {
 		this.sequence.setSequence();
 		return this.sequence.sequence;
@@ -30,40 +16,40 @@ class Game {
 	}
 
 	runSequence(sequence) {
+		let offset;
 		sequence.forEach((color, i) => {
+			offset = i++ * 2000;
 			const square = document.querySelector(`#${color}`);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
 				this.playAudio(color);
 				setTimeout(() => {
 					square.classList.remove('active');
-					// square.stop();
 				}, 1000);
-			}, i++ * 2000);
+			}, offset);
 		});
+		setTimeout(() => {
+			this.sequenceRunning = false;
+			console.log(this.sequenceRunning);
+		}, offset);
 	}
 
 	//SOURCE - https://stackoverflow.com/questions/17246275/settimeout-and-array-each
 
 	nextRound() {
 		this.playerSequence = [];
-		this.round++;
-		const p = document.querySelector('p');
+		this.round += 1;
+		const score = document.querySelector('#scoreNum');
 		if (this.round < 10) {
-			p.innerText = `0${this.round}`;
+			score.innerText = `0${this.round}`;
 		} else {
-			p.innerText = `${this.round}`;
+			score.innerText = `${this.round}`;
 		}
 	}
 
-	/**
-	 * @function startGame
-	 * @params
-	 * starts the game ...
-	 * stretch - will have an overlay with start button to enter the 'game page'
-	 * calls the sequence class to get a new sequence - oop??
-	 */
 	playGame() {
+		this.sequenceRunning = true;
+		console.log(this.sequenceRunning);
 		const sequence = this.getSequence();
 		for (let i = 0; i <= this.round; i++) {
 			this.runSequence(sequence);
@@ -73,7 +59,9 @@ class Game {
 
 	checkPlayerSequence() {
 		if (this.playerSequence.join() === this.sequence.sequence.join()) {
-			this.playGame();
+			setTimeout(() => {
+				this.playGame();
+			}, 1000);
 		} else {
 			const gameOver = document.querySelector('#overlay');
 			const title = document.querySelector('#title');
@@ -82,13 +70,6 @@ class Game {
 			title.innerText = 'Game Over';
 		}
 	}
-
-	/**
-	 * @function handleInteration
-	 * @params
-	 * function will handle the events that need to happen for a click event
-	 * stretch - will handle the events that need to happen for qwerty events
-	 */
 
 	handleInteraction(e) {
 		this.playerSequence.push(e);
