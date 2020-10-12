@@ -5,9 +5,26 @@ class Game {
 		this.sequence = new Sequence();
 		this.sequenceRunning = false;
 	}
+
+	/**
+	 * @function playGame
+	 * sets sequenceRunning to true - player not be able to add to playerSequence until the computer's sequence is finished running
+	 * runs getSequence (adds new color to this.sequence.sequence for each round played)
+	 */
+
+	playGame() {
+		this.sequenceRunning = true;
+		const sequence = this.getSequence();
+		for (let i = 0; i <= this.round; i++) {
+			this.runSequence(sequence);
+		}
+		this.nextRound();
+	}
+	/** do I like next round here?? maybe better placed in another function - after check sequence maybe? */
+
+	// returns an additional index to computer's sequence from sequence class each time run
 	getSequence() {
-		this.sequence.setSequence();
-		return this.sequence.sequence;
+		return this.sequence.setSequence();
 	}
 
 	playAudio(color) {
@@ -15,10 +32,15 @@ class Game {
 		e.play();
 	}
 
+	/**
+	 * @function runSequence()
+	 * @param {object} sequence
+	 * runs computer sequence with a flash and audio to indicate color chosen by computer
+	 */
 	runSequence(sequence) {
 		let offset;
 		sequence.forEach((color, i) => {
-			offset = i++ * 2000;
+			offset = i++ * 1500;
 			const square = document.querySelector(`#${color}`);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
@@ -46,45 +68,20 @@ class Game {
 		}
 	}
 
-	playGame() {
-		this.sequenceRunning = true;
-		const sequence = this.getSequence();
-		for (let i = 0; i <= this.round; i++) {
-			this.runSequence(sequence);
-		}
-		this.nextRound();
-	}
-
-	checkPlayerSequence() {
-		const check = this.playerSequence.map((color, i) => {
-			if (color === this.sequence.sequence[i]) {
-				// console.log('please continue');
-				// console.log(color);
-				// console.log(this.sequence.sequence[i]);
-				return true;
-			} else {
-				('whoops, game over');
-				// console.log(color);
-				// console.log(this.sequence.sequence[i]);
-				// console.log(this.sequence.sequence);
-				// console.log(this.playerSequence);
-				return false;
-			}
-		});
-		return check;
-	}
-
 	checkForGameOver() {
-		if (this.checkPlayerSequence().includes(false)) {
-			const gameOver = document.querySelector('#overlay');
-			const title = document.querySelector('#title');
-			gameOver.style.display = '';
-			title.style.color = 'red';
-			title.innerText = 'Game Over';
-		} else {
-			setTimeout(() => {
-				this.playGame();
-			}, 1000);
+		for (let i = 0; i < this.sequence.sequence.length; i++) {
+			if (this.playerSequence[i]) {
+				if (this.sequence.sequence[i] !== this.playerSequence[i]) {
+					const gameOver = document.querySelector('#overlay');
+					const title = document.querySelector('#title');
+					gameOver.style.display = '';
+					title.style.color = 'red';
+					title.innerText = 'Game Over';
+				}
+			}
+		}
+		if (this.sequence.sequence.length === this.playerSequence.length) {
+			return true;
 		}
 	}
 
@@ -102,7 +99,11 @@ class Game {
 
 	handleInteraction(e) {
 		this.playerSequence.push(e);
-		this.checkPlayerSequence();
 		this.checkForGameOver();
+		if (this.checkForGameOver() === true) {
+			setTimeout(() => {
+				this.playGame();
+			}, 1000);
+		}
 	}
 }
