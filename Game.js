@@ -56,16 +56,35 @@ class Game {
 	}
 
 	checkPlayerSequence() {
-		if (this.playerSequence.join() === this.sequence.sequence.join()) {
-			setTimeout(() => {
-				this.playGame();
-			}, 1000);
-		} else {
+		const check = this.playerSequence.map((color, i) => {
+			if (color === this.sequence.sequence[i]) {
+				// console.log('please continue');
+				// console.log(color);
+				// console.log(this.sequence.sequence[i]);
+				return true;
+			} else {
+				('whoops, game over');
+				// console.log(color);
+				// console.log(this.sequence.sequence[i]);
+				// console.log(this.sequence.sequence);
+				// console.log(this.playerSequence);
+				return false;
+			}
+		});
+		return check;
+	}
+
+	checkForGameOver() {
+		if (this.checkPlayerSequence().includes(false)) {
 			const gameOver = document.querySelector('#overlay');
 			const title = document.querySelector('#title');
 			gameOver.style.display = '';
 			title.style.color = 'red';
 			title.innerText = 'Game Over';
+		} else {
+			setTimeout(() => {
+				this.playGame();
+			}, 1000);
 		}
 	}
 
@@ -83,8 +102,7 @@ class Game {
 
 	handleInteraction(e) {
 		this.playerSequence.push(e);
-		if (this.playerSequence.length === this.sequence.sequence.length) {
-			this.checkPlayerSequence();
-		}
+		this.checkPlayerSequence();
+		this.checkForGameOver();
 	}
 }
