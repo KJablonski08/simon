@@ -82,6 +82,69 @@ board.addEventListener('click', (e) => {
 	}
 });
 
+document.onkeydown = (e) => {
+	if (e.key === 'ArrowUp') {
+		const square = document.querySelector('#red');
+		const audio = document.querySelector('#redAudio');
+		console.log(square);
+		if (game.sequenceRunning === false) {
+			if (game.audio === true) {
+				audio.play();
+			}
+			square.setAttribute('class', 'active');
+			setTimeout(() => {
+				square.classList.remove('active');
+			}, 100);
+			setTimeout(game.handleInteraction(square.id), 5000);
+		}
+	}
+	if (e.key === 'ArrowRight') {
+		const square = document.querySelector('#yellow');
+		const audio = document.querySelector('#yellowAudio');
+		console.log(square);
+		if (game.sequenceRunning === false) {
+			if (game.audio === true) {
+				audio.play();
+			}
+			square.setAttribute('class', 'active');
+			setTimeout(() => {
+				square.classList.remove('active');
+			}, 100);
+			setTimeout(game.handleInteraction(square.id), 5000);
+		}
+	}
+	if (e.key === 'ArrowDown') {
+		const square = document.querySelector('#blue');
+		const audio = document.querySelector('#blueAudio');
+		console.log(square);
+		if (game.sequenceRunning === false) {
+			if (game.audio === true) {
+				audio.play();
+			}
+			square.setAttribute('class', 'active');
+			setTimeout(() => {
+				square.classList.remove('active');
+			}, 100);
+			setTimeout(game.handleInteraction(square.id), 5000);
+		}
+	}
+	if (e.key === 'ArrowLeft') {
+		const square = document.querySelector('#green');
+		const audio = document.querySelector('#greenAudio');
+		console.log(square);
+		if (game.sequenceRunning === false) {
+			if (game.audio === true) {
+				audio.play();
+			}
+			square.setAttribute('class', 'active');
+			setTimeout(() => {
+				square.classList.remove('active');
+			}, 100);
+			setTimeout(game.handleInteraction(square.id), 5000);
+		}
+	}
+};
+
 // event listener to restart to a new game
 restart.addEventListener('click', () => {
 	clearTimeout();
