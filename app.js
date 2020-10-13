@@ -6,6 +6,7 @@ const restart = document.querySelector('#restart');
 const instructionsBtn = document.querySelectorAll('.instructions');
 const modal = document.querySelector('#modal');
 const close = document.querySelector('#close');
+const music = document.querySelector('#audio');
 const game = new Game();
 
 const hideOverlay = () => (overlay.style.display = 'none');
@@ -70,7 +71,9 @@ board.addEventListener('click', (e) => {
 	const square = e.target;
 	const audio = e.target.firstElementChild;
 	if (game.sequenceRunning === false) {
-		audio.play();
+		if (game.audio === true) {
+			audio.play();
+		}
 		square.setAttribute('class', 'active');
 		setTimeout(() => {
 			square.classList.remove('active');
@@ -81,5 +84,11 @@ board.addEventListener('click', (e) => {
 
 // event listener to restart to a new game
 restart.addEventListener('click', () => {
+	clearTimeout();
 	game.restart();
+});
+
+// event listener to stop music
+music.addEventListener('click', () => {
+	game.audioController();
 });

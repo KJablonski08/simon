@@ -4,6 +4,7 @@ class Game {
 		this.round = 0;
 		this.sequence = new Sequence();
 		this.sequenceRunning = false;
+		this.audio = true;
 	}
 
 	/**
@@ -32,6 +33,17 @@ class Game {
 		e.play();
 	}
 
+	audioController() {
+		const music = document.querySelector('#audio');
+		if (this.audio === true) {
+			this.audio = false;
+			music.style.textDecoration = 'line-through';
+		} else {
+			this.audio = true;
+			music.style.textDecoration = 'none';
+		}
+	}
+
 	/**
 	 * @function runSequence()
 	 * @param {object} sequence
@@ -44,7 +56,9 @@ class Game {
 			const square = document.querySelector(`#${color}`);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
-				this.playAudio(color);
+				if (this.audio === true) {
+					this.playAudio(color);
+				}
 				setTimeout(() => {
 					square.classList.remove('active');
 				}, 1000);
