@@ -165,5 +165,10 @@ audio {
 }
 
 footer {
-	margin-top: 250px;
+	color: lightgray;
+	margin-top: 50px;
+}
+
+footer a {
+	color: grey;
 }

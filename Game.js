@@ -71,15 +71,6 @@ class Game {
 			this.offset = i++ * 1500;
 			const square = document.querySelector(`#${color}`);
 			this.stopTimeout(this.offset, square, color);
-			// this.timeOut = setTimeout(() => {
-			// 	square.setAttribute('class', 'active');
-			// 	if (this.audio === true) {
-			// 		this.playAudio(color);
-			// 	}
-			// 	setTimeout(() => {
-			// 		square.classList.remove('active');
-			// 	}, 1000);
-			// }, this.offset);
 		});
 		setTimeout(() => {
 			this.sequenceRunning = false;
@@ -112,13 +103,15 @@ class Game {
 				}
 			}
 		}
-		if (this.sequence.sequence.length === this.playerSequence.length) {
+		if (
+			this.sequence.sequence.length === this.playerSequence.length &&
+			this.round !== 0
+		) {
 			return true;
 		}
 	}
 
 	restart() {
-		clearTimeout(this.timeOut);
 		const score = document.querySelector('#scoreNum');
 		const restart = document.querySelector('#restart');
 		const start = document.querySelector('#start');
