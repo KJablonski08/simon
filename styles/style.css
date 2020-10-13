@@ -35,6 +35,7 @@ body {
 
 #modal-textbox {
 	background-color: white;
+	overflow: scroll;
 	height: 350px;
 	width: 550px;
 	border-radius: 2px;

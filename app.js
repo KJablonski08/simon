@@ -86,7 +86,6 @@ document.onkeydown = (e) => {
 	if (e.key === 'ArrowUp') {
 		const square = document.querySelector('#red');
 		const audio = document.querySelector('#redAudio');
-		console.log(square);
 		if (game.sequenceRunning === false) {
 			if (game.audio === true) {
 				audio.play();
@@ -101,7 +100,6 @@ document.onkeydown = (e) => {
 	if (e.key === 'ArrowRight') {
 		const square = document.querySelector('#yellow');
 		const audio = document.querySelector('#yellowAudio');
-		console.log(square);
 		if (game.sequenceRunning === false) {
 			if (game.audio === true) {
 				audio.play();
@@ -116,7 +114,6 @@ document.onkeydown = (e) => {
 	if (e.key === 'ArrowDown') {
 		const square = document.querySelector('#blue');
 		const audio = document.querySelector('#blueAudio');
-		console.log(square);
 		if (game.sequenceRunning === false) {
 			if (game.audio === true) {
 				audio.play();
@@ -131,7 +128,6 @@ document.onkeydown = (e) => {
 	if (e.key === 'ArrowLeft') {
 		const square = document.querySelector('#green');
 		const audio = document.querySelector('#greenAudio');
-		console.log(square);
 		if (game.sequenceRunning === false) {
 			if (game.audio === true) {
 				audio.play();
@@ -144,10 +140,6 @@ document.onkeydown = (e) => {
 		}
 	}
 };
-
-document.addEventListener('keypress', (e) => {
-	console.log(e);
-});
 
 // event listener to restart to a new game
 restart.addEventListener('click', () => {
