@@ -145,6 +145,10 @@ document.onkeydown = (e) => {
 	}
 };
 
+document.addEventListener('keypress', (e) => {
+	console.log(e);
+});
+
 // event listener to restart to a new game
 restart.addEventListener('click', () => {
 	clearTimeout();
