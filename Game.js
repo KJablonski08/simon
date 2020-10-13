@@ -5,7 +5,7 @@ class Game {
 		this.sequence = new Sequence();
 		this.sequenceRunning = false;
 		this.audio = true;
-		this.offset;
+		this.timeOut;
 	}
 
 	/**
@@ -51,11 +51,9 @@ class Game {
 	 * runs computer sequence with a flash and audio to indicate color chosen by computer
 	 */
 
-	runSequence(sequence) {
-		sequence.forEach((color, i) => {
-			this.offset = i++ * 1500;
-			const square = document.querySelector(`#${color}`);
-			setTimeout(() => {
+	stopTimeout(offset, square, color) {
+		this.timeOut = setTimeout(
+			(() => {
 				square.setAttribute('class', 'active');
 				if (this.audio === true) {
 					this.playAudio(color);
@@ -63,7 +61,25 @@ class Game {
 				setTimeout(() => {
 					square.classList.remove('active');
 				}, 1000);
-			}, this.offset);
+			}).bind(this),
+			offset
+		);
+	}
+
+	runSequence(sequence) {
+		sequence.forEach((color, i) => {
+			this.offset = i++ * 1500;
+			const square = document.querySelector(`#${color}`);
+			this.stopTimeout(this.offset, square, color);
+			// this.timeOut = setTimeout(() => {
+			// 	square.setAttribute('class', 'active');
+			// 	if (this.audio === true) {
+			// 		this.playAudio(color);
+			// 	}
+			// 	setTimeout(() => {
+			// 		square.classList.remove('active');
+			// 	}, 1000);
+			// }, this.offset);
 		});
 		setTimeout(() => {
 			this.sequenceRunning = false;
@@ -102,6 +118,7 @@ class Game {
 	}
 
 	restart() {
+		clearTimeout(this.timeOut);
 		const score = document.querySelector('#scoreNum');
 		const restart = document.querySelector('#restart');
 		const start = document.querySelector('#start');
