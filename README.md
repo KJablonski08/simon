@@ -1,6 +1,9 @@
 # Simon 
 
 A new version of the classic Simon game from Hasbro Gaming, written in vanilla JavaScript
+Players must repeat random sequences of colors(simulating lights) by pressing the colored boxes in the correct order. As the player selects the correct color, the pattern gets longer by adding one additional color to the sequence each round
+This game can be played with your mouse - by mousing over your chosen color and clicking
+This game can also be played entirely using your keyboard - 'Enter' to begin. Arrow keys to navigate the game board: red: ⬆️, yellow: ➡️, blue: ⬇️, green: ⬅️
 
 # Preview 
 
@@ -14,7 +17,8 @@ JavaScript | HTML | CSS
 
 * Fork and clone this repository 
 * Start up local server and open index.html 
-* Follow in app instructions on how to play Simon
+* Follow in app instructions on how to play Simon 
+* instructions can be located by clicking on the 'instructions' button or pressing 'i' on your keyboard
 
 # User Stories 
 
