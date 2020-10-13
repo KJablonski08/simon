@@ -5,6 +5,7 @@ class Game {
 		this.sequence = new Sequence();
 		this.sequenceRunning = false;
 		this.audio = true;
+		this.offset;
 	}
 
 	/**
@@ -49,10 +50,10 @@ class Game {
 	 * @param {object} sequence
 	 * runs computer sequence with a flash and audio to indicate color chosen by computer
 	 */
+
 	runSequence(sequence) {
-		let offset;
 		sequence.forEach((color, i) => {
-			offset = i++ * 1500;
+			this.offset = i++ * 1500;
 			const square = document.querySelector(`#${color}`);
 			setTimeout(() => {
 				square.setAttribute('class', 'active');
@@ -62,11 +63,11 @@ class Game {
 				setTimeout(() => {
 					square.classList.remove('active');
 				}, 1000);
-			}, offset);
+			}, this.offset);
 		});
 		setTimeout(() => {
 			this.sequenceRunning = false;
-		}, offset);
+		}, this.offset);
 	}
 
 	//SOURCE - https://stackoverflow.com/questions/17246275/settimeout-and-array-each
@@ -91,6 +92,7 @@ class Game {
 					gameOver.style.display = '';
 					title.style.color = 'red';
 					title.innerText = 'Game Over';
+					this.restart();
 				}
 			}
 		}
