@@ -157,11 +157,25 @@ audio {
 	border-radius: 50px 2px 50px 2px;
 }
 
+#orange {
+	display: none;
+}
+
+#purple {
+	display: none;
+}
+
 #red.active,
 #green.active,
 #yellow.active,
 #blue.active {
 	opacity: 0.5;
+}
+
+#space {
+	display: none;
+	background-image: url('/styles/images/andy-holmes-LUpDjlJv4_c-unsplash.jpg');
+	color: white;
 }
 
 footer {

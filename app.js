@@ -7,6 +7,7 @@ const instructionsBtn = document.querySelectorAll('.instructions');
 const modal = document.querySelector('#modal');
 const close = document.querySelector('#close');
 const music = document.querySelector('#audio');
+const titleMsg = document.querySelector('#title-msg');
 const game = new Game();
 
 const hideOverlay = () => (overlay.style.display = 'none');
@@ -59,6 +60,7 @@ start.addEventListener('click', () => {
 document.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
 		if (overlay.style.display === 'none') {
+			titleMsg.innerText = 'Level 1-10 Retro';
 			start.style.display = 'none';
 			restart.style.display = 'inline-block';
 			game.playGame();
@@ -82,62 +84,33 @@ board.addEventListener('click', (e) => {
 	}
 });
 
+const keyEvents = (color) => {
+	const square = document.querySelector(`#${color}`);
+	const audio = document.querySelector(`#${color}Audio`);
+	if (game.sequenceRunning === false) {
+		if (game.audio === true) {
+			audio.play();
+		}
+		square.setAttribute('class', 'active');
+		setTimeout(() => {
+			square.classList.remove('active');
+		}, 100);
+		setTimeout(game.handleInteraction(square.id), 5000);
+	}
+};
+
 document.onkeydown = (e) => {
 	if (e.key === 'ArrowUp') {
-		const square = document.querySelector('#red');
-		const audio = document.querySelector('#redAudio');
-		if (game.sequenceRunning === false) {
-			if (game.audio === true) {
-				audio.play();
-			}
-			square.setAttribute('class', 'active');
-			setTimeout(() => {
-				square.classList.remove('active');
-			}, 100);
-			setTimeout(game.handleInteraction(square.id), 5000);
-		}
+		keyEvents('red');
 	}
 	if (e.key === 'ArrowRight') {
-		const square = document.querySelector('#yellow');
-		const audio = document.querySelector('#yellowAudio');
-		if (game.sequenceRunning === false) {
-			if (game.audio === true) {
-				audio.play();
-			}
-			square.setAttribute('class', 'active');
-			setTimeout(() => {
-				square.classList.remove('active');
-			}, 100);
-			setTimeout(game.handleInteraction(square.id), 5000);
-		}
+		keyEvents('yellow');
 	}
 	if (e.key === 'ArrowDown') {
-		const square = document.querySelector('#blue');
-		const audio = document.querySelector('#blueAudio');
-		if (game.sequenceRunning === false) {
-			if (game.audio === true) {
-				audio.play();
-			}
-			square.setAttribute('class', 'active');
-			setTimeout(() => {
-				square.classList.remove('active');
-			}, 100);
-			setTimeout(game.handleInteraction(square.id), 5000);
-		}
+		keyEvents('blue');
 	}
 	if (e.key === 'ArrowLeft') {
-		const square = document.querySelector('#green');
-		const audio = document.querySelector('#greenAudio');
-		if (game.sequenceRunning === false) {
-			if (game.audio === true) {
-				audio.play();
-			}
-			square.setAttribute('class', 'active');
-			setTimeout(() => {
-				square.classList.remove('active');
-			}, 100);
-			setTimeout(game.handleInteraction(square.id), 5000);
-		}
+		keyEvents('green');
 	}
 };
 
@@ -150,4 +123,17 @@ restart.addEventListener('click', () => {
 // event listener to stop music
 music.addEventListener('click', () => {
 	game.audioController();
+});
+
+// Levels
+
+const space = document.querySelector('#space');
+space.addEventListener('click', () => {
+	document.querySelector("link[href='styles/style.css']").href =
+		'styles/space.css';
+	console.log();
+	setTimeout(game.runSequence(game.sequence.sequence), 5000);
+	game.sequence.sequenceChoices.push('orange', 'purple');
+	console.log(game.sequence.sequenceChoices);
+	space.style.display = 'none';
 });

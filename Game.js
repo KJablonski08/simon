@@ -21,6 +21,9 @@ class Game {
 			this.runSequence(sequence);
 		}
 		this.nextRound();
+		if (this.round > 10) {
+			this.levelUp();
+		}
 	}
 	/** do I like next round here?? maybe better placed in another function - after check sequence maybe? */
 
@@ -131,5 +134,11 @@ class Game {
 				this.playGame();
 			}, 1000);
 		}
+	}
+
+	levelUp() {
+		const space = document.querySelector('#space');
+		space.style.display = 'inline-block';
+		titleMsg.innerText = 'the galaxy rests in your hands...';
 	}
 }
