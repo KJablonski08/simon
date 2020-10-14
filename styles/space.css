@@ -2,7 +2,7 @@ body {
 	text-align: center;
 	font-family: 'VT323', monospace;
 	color: white;
-	background-image: url('/styles/images/andy-holmes-LUpDjlJv4_c-unsplash.jpg');
+	background-image: url('/styles/images/space.jpg');
 }
 
 #overlay {
@@ -172,7 +172,7 @@ audio {
 
 #space {
 	display: none;
-	background-image: url('/styles/images/andy-holmes-LUpDjlJv4_c-unsplash.jpg');
+	background-image: url('styles/images/space.jpg');
 	color: white;
 }
 
