@@ -2,7 +2,7 @@ body {
 	text-align: center;
 	font-family: 'VT323', monospace;
 	color: white;
-	background-image: url('/styles/images/space.jpg');
+	background-image: url('https://images3.alphacoders.com/572/57219.jpg');
 }
 
 #overlay {
@@ -172,7 +172,7 @@ audio {
 
 #space {
 	display: none;
-	background-image: url('styles/images/space.jpg');
+	background-image: url('https://images3.alphacoders.com/572/57219.jpg');
 	color: white;
 }
 
