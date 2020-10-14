@@ -131,9 +131,7 @@ const space = document.querySelector('#space');
 space.addEventListener('click', () => {
 	document.querySelector("link[href='styles/style.css']").href =
 		'styles/space.css';
-	console.log();
 	setTimeout(game.runSequence(game.sequence.sequence), 5000);
 	game.sequence.sequenceChoices.push('orange', 'purple');
-	console.log(game.sequence.sequenceChoices);
 	space.style.display = 'none';
 });
