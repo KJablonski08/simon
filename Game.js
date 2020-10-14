@@ -21,7 +21,7 @@ class Game {
 			this.runSequence(sequence);
 		}
 		this.nextRound();
-		if (this.round > 10) {
+		if (this.round > 3) {
 			this.levelUp();
 		}
 	}
