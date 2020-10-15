@@ -6,6 +6,7 @@ class Game {
 		this.sequenceRunning = false;
 		this.audio = true;
 		this.timeOut;
+		this.broken = false;
 	}
 
 	/**
@@ -21,11 +22,11 @@ class Game {
 			this.runSequence(sequence);
 		}
 		this.nextRound();
+		this.broken = false;
 		if (this.round > 8) {
 			this.levelUp();
 		}
 	}
-	/** do I like next round here?? maybe better placed in another function - after check sequence maybe? */
 
 	// returns an additional index to computer's sequence from sequence class each time run
 	getSequence() {
@@ -57,6 +58,7 @@ class Game {
 	stopTimeout(offset, square, color) {
 		this.timeOut = setTimeout(
 			(() => {
+				if (this.broken) return;
 				square.setAttribute('class', 'active');
 				if (this.audio === true) {
 					this.playAudio(color);
@@ -115,6 +117,7 @@ class Game {
 	}
 
 	restart() {
+		this.broken = true;
 		const score = document.querySelector('#scoreNum');
 		const restart = document.querySelector('#restart');
 		const start = document.querySelector('#start');
