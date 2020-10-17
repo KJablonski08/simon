@@ -116,7 +116,6 @@ document.onkeydown = (e) => {
 
 // event listener to restart to a new game
 restart.addEventListener('click', () => {
-	clearTimeout();
 	game.restart();
 });
 
