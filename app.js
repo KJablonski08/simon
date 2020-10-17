@@ -56,6 +56,13 @@ start.addEventListener('click', () => {
 	game.playGame();
 });
 
+// event listener to restart to a new game
+restart.addEventListener('click', () => {
+	start.style.display = 'inline-block';
+	restart.style.display = 'none';
+	game.restart();
+});
+
 // click events for qwerty events - accessibility
 document.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
@@ -113,11 +120,6 @@ document.onkeydown = (e) => {
 		keyEvents('green');
 	}
 };
-
-// event listener to restart to a new game
-restart.addEventListener('click', () => {
-	game.restart();
-});
 
 // event listener to stop music
 music.addEventListener('click', () => {

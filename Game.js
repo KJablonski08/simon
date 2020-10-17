@@ -5,15 +5,8 @@ class Game {
 		this.sequence = new Sequence();
 		this.sequenceRunning = false;
 		this.audio = true;
-		this.timeOut;
 		this.broken = false;
 	}
-
-	/**
-	 * @function playGame
-	 * sets sequenceRunning to true - player not be able to add to playerSequence until the computer's sequence is finished running
-	 * runs getSequence (adds new color to this.sequence.sequence for each round played)
-	 */
 
 	playGame() {
 		this.sequenceRunning = true;
@@ -28,7 +21,6 @@ class Game {
 		}
 	}
 
-	// returns an additional index to computer's sequence from sequence class each time run
 	getSequence() {
 		return this.sequence.setSequence();
 	}
@@ -49,14 +41,8 @@ class Game {
 		}
 	}
 
-	/**
-	 * @function runSequence()
-	 * @param {object} sequence
-	 * runs computer sequence with a flash and audio to indicate color chosen by computer
-	 */
-
 	stopTimeout(offset, square, color) {
-		this.timeOut = setTimeout(
+		setTimeout(
 			(() => {
 				if (this.broken) return;
 				square.setAttribute('class', 'active');
@@ -117,16 +103,12 @@ class Game {
 	}
 
 	restart() {
-		this.broken = true;
 		const score = document.querySelector('#scoreNum');
-		const restart = document.querySelector('#restart');
-		const start = document.querySelector('#start');
+		this.sequence.sequence = [];
 		this.playerSequence = [];
 		this.round = 0;
-		this.sequence.sequence = [];
+		this.broken = true;
 		score.innerText = score.innerText = `0${this.round}`;
-		restart.style.display = 'none';
-		start.style.display = '';
 	}
 
 	handleInteraction(e) {
