@@ -21,9 +21,7 @@ play.addEventListener('click', () => {
 
 // close overlay event listener for qwerty - accessibility
 document.addEventListener('keypress', (e) => {
-	if (e.key === 'p') {
-		hideOverlay();
-	}
+	if (e.key === 'p') hideOverlay();
 });
 
 // INSTRUCTIONS MODAL EVENT LISTENERS
@@ -33,9 +31,7 @@ instructionsBtn[1].addEventListener('click', openModal);
 
 // instructions open modal event listener for qwerty - accessibility
 document.addEventListener('keypress', (e) => {
-	if (e.key === 'i') {
-		openModal();
-	}
+	if (e.key === 'i') openModal();
 });
 
 // instructions close modal event listener
@@ -43,23 +39,26 @@ close.addEventListener('click', closeModal);
 
 // instructions close modal event listener for qwerty - accessibility
 document.addEventListener('keypress', (e) => {
-	if (e.key === 'x') {
-		closeModal();
-	}
+	if (e.key === 'x') closeModal();
 });
 
 // BOARD EVENT LISTENERS
+
+function startRestart(innerText, startDisplay, restartDisplay) {
+	titleMsg.innerText = innerText;
+	start.style.display = startDisplay;
+	restart.style.display = restartDisplay;
+}
+
 //start button event listener to begin game play sequence
 start.addEventListener('click', () => {
-	start.style.display = 'none';
-	restart.style.display = 'inline-block';
+	startRestart('', 'none', 'inline-block');
 	game.playGame();
 });
 
 // event listener to restart to a new game
 restart.addEventListener('click', () => {
-	start.style.display = 'inline-block';
-	restart.style.display = 'none';
+	startRestart("Press 'Enter' to begin", 'inline-block', 'none');
 	game.restart();
 });
 
@@ -67,9 +66,7 @@ restart.addEventListener('click', () => {
 document.addEventListener('keypress', (e) => {
 	if (e.key === 'Enter') {
 		if (overlay.style.display === 'none') {
-			titleMsg.innerText = 'Level 1-10 Retro';
-			start.style.display = 'none';
-			restart.style.display = 'inline-block';
+			startRestart('', 'none', 'inline-block');
 			game.playGame();
 		}
 	}
