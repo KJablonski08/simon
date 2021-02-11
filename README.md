@@ -3,12 +3,18 @@
 A new version of the classic Simon game from Hasbro Gaming, written in vanilla JavaScript
 Players must repeat random sequences of colors(simulating lights) by pressing the colored boxes in the correct order. As the player selects the correct color, the pattern gets longer by adding one additional color to the sequence each round
 This game can be played with your mouse - by mousing over your chosen color and clicking
-This game can also be played entirely using your keyboard - 'Enter' to begin. Arrow keys to navigate the game board: red: ⬆️, yellow: ➡️, blue: ⬇️, green: ⬅️
+### Accessibility 
+Game can also be played entirely using your keyboard 
+- 'Enter' to begin
+- Arrow keys to navigate the game board: red: ⬆️, yellow: ➡️, blue: ⬇️, green: ⬅️
+- instructions can be located by clicking on the 'instructions' button or pressing 'i' on your keyboard
 
 # Preview 
 
 ![game_preview](simonGiphy.gif)
 
+[Play Simon Here](kjablonski08.github.io/simon/)
+ 
 # Technologies Used 
 
 JavaScript | HTML | CSS 
@@ -18,7 +24,6 @@ JavaScript | HTML | CSS
 * Fork and clone this repository 
 * Start up local server and open index.html 
 * Follow in app instructions on how to play Simon 
-* instructions can be located by clicking on the 'instructions' button or pressing 'i' on your keyboard
 
 # User Stories 
 
@@ -36,9 +41,8 @@ JavaScript | HTML | CSS
 
 # Hurdles 
 
-My first initial hurdles was getting the sequence to flash at the correct times. It took a lot of finess to find a time frame for the sequence to run that was not too slow that the player would get bored, but not too quick that the player would miss the prompt
-My next hurldle was to solve the issue of a user clicking on the screen while the computers sequence was still running. If the user clicked any of the color squares while the computer sequence was running, this would create a glitch and cause the player sequence to be incorrect at the start of the next round.
-I was able to solve this by adding a sequence running boolean to the constructor in the game class. If the game is running then the boolean will return true and the click events for the player will not be registered. When the sequence is completed for each round, the boolean is toggles to false and the user may click and make their choices for the sequence. 
+1. timing - it took finesse to find a time frame for the sequence to run that was not too slow that the player would get bored, but not too quick that the player would miss the prompt
+2. user clicks while sequence running - if the user clicked any of the color squares while the computer sequence was running, this would create a glitch and cause the player sequence to be incorrect at the start of the next round. I was able to solve this by adding a sequence running boolean to the constructor in the game class. If the game is running then the boolean will return true and the click events for the player will not be registered. When the sequence is completed for each round, the boolean is toggles to false and the user may click and make their choices for the sequence. 
 
 # Unsolved Problems 
 
