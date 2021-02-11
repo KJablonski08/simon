@@ -31,8 +31,8 @@ JavaScript | HTML | CSS
 
 # Wireframes 
 
-![wireframe1](wireframe1.png)
-![wireframe2](wireframe2.png)
+<span><img src="wireframe1.png" width="400" height="500" /></span>
+<span><img src="wireframe2.png" width="400" height="500" /></span>
 
 # Hurdles 
 
